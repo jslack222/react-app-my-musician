@@ -1,5 +1,130 @@
-.App {
-  text-align: center;
+:root {
+  --primary: #4b4b4b; 
+  --nuetral: #989898; 
+  --secondary: #ffffff; 
+  --highlight: #35ceff;
 }
+/* *{
+  background-color: var(--primary)
+} */
+
+/* .App {
+  text-align: center;
+  justify-content: center;
+  display: flex; 
+  padding: 90px 0 90px 0;
+  background-color: var(--primary);  */
+
+/* } */
+.main {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  background-color: var(--primary);
+}
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity:1;}
+}
+
+.sub-main {
+  display: flex;
+    justify-content: center;
+    height: 65vh;
+    width: 45vw;
+  box-shadow: 11px 12px 13px 12px rgba(0, 0, 0, 0.2); 
+  padding-top: 30px; 
+  border-radius: 60px; 
+  background-color: var(--nuetral); 
+  animation: fadeIn 4s; 
+
+}
+.imgs {
+  padding-top: 20px;
+  justify-content: center;
+  display: flex;
+  background-color: transparent;
+
+}
+.imgs:hover{
+  animation: bounce 1s
+}
+.container-img {
+  background-color: transparent; 
+  border-radius: 150px; 
+  align-items: center; 
+  display: flex; 
+  height: 100px; 
+  width: 100px;
+  
+}
+.profile {
+  height: 100px; 
+  width: 100px; 
+  border-radius: 130px; 
+  background-color: transparent;
+  
+}
+.name {
+  width: 30vw; 
+  height: 50px; 
+  border-radius: 30px; 
+  box-shadow: 3px 2px 3px 2px rgba(0, 0, 0, 0.2); 
+  outline: none; 
+  border: none;
+  background-color: white;
+
+
+}
+.input-icons {
+  height:25px; 
+  width: 25px; 
+  position: absolute; 
+  padding: 14px 0 0 25px; 
+
+}
+.name {
+  padding-left: 70px; 
+  font-size: 20px;
+}
+.second-input {
+  padding-top: 20px;
+}
+
+button {
+  width: 30vw; 
+  height: 60px;
+  border-radius: 30px;
+  background-color: var(--highlight); 
+  color: white; 
+  font-size: 25px;
+  border: none; 
+  cursor: pointer;
+  box-shadow: 0 9px rgb(152, 152, 152);
+}
+
+.login-button {
+  padding-top: 20px;
+}
+
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-30px);}
+  60% {transform: translateY(-15px);}
+}
+
+
+button:active {
+    transform: translateY(4px); 
+  
+}
+button:hover {
+  background-color: var(--secondary);
+  color: black;
+}
+
 
 
