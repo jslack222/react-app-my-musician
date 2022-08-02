@@ -1,10 +1,12 @@
 import userIcon from '../../assets/img/userIcon.png'
 import emailIcon from '../../assets/img/email_icon.png'
 import lockIcon from '../../assets/img/lock_icon.png'
-
+import { useState } from "react";
 
 const Login = () => {
-    return (
+    const [buttonPopup, setButtonPopup] = useState(false);
+    
+  return (
       <div className="main">
         <div className="sub-main">
           <div>
@@ -15,10 +17,10 @@ const Login = () => {
             </div>
 
             <div>
-              <h1>Login</h1>
+              <h1 className="connect">Connect with other musicians around the world</h1>
               <div>
                 <img src={emailIcon} alt="email icon" className="input-icons" />
-                <input type="text" placeholder="user name" className="name" />
+                <input type="text" placeholder="username" className="name" />
               </div>
               <div className="second-input">
                 <img
@@ -26,10 +28,10 @@ const Login = () => {
                   alt="password icon"
                   className="input-icons"
                 />
-                <input type="text" placeholder="user name" className="name" />
+                <input type="password" placeholder="password" className="name" />
               </div>
               <div className="login-button">
-                <button className="login-btn">Login</button>
+                <button className="login-button">Login</button>
               </div>
             </div>
           </div>
