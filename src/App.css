@@ -3,6 +3,7 @@
   --nuetral: #989898; 
   --secondary: #ffffff; 
   --highlight: #35ceff;
+  --dark: #2a2a2a;
 }
 /* *{
   background-color: var(--primary)
@@ -164,3 +165,7 @@ p {
   width: 100%;
   height: 100px;
 }
+header {
+  background-color: var(--dark)
+}
+
