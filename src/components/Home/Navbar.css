@@ -1,0 +1,87 @@
+.global::before {
+    margin: 0; 
+    box-sizing: border-box; 
+}
+li {
+    display: inline-block;
+    margin: 14px; 
+}
+.nav {
+    display: flex; 
+    align-items: center;
+    justify-content: space-around; 
+    height: 8vh; 
+    padding-top: 4px;
+    float: right
+    
+}
+.brand {
+    display: inline-block;
+    height: 7vh;
+    margin: 6px 79px;
+    background-color: var(--primary);
+    border-radius: 30px; 
+    animation: bounce 1s
+    
+}
+.brand:hover {
+    background-color: var(--nav); 
+    
+    
+}
+.nav_menu {
+   float: left;
+}
+
+.friends-icon {
+    height: 6vh;
+    padding: 5px;
+    border-radius: 30px;
+    background-color: var(--primary);
+    animation: bounce 2s;
+    
+}
+.friends-icon:hover {
+    background-color: var(--nav)
+}
+.music-icon {
+    height: 5vh;
+    padding: 8px;
+    border-radius: 30px;
+    background-color: var(--primary); 
+    animation: bounce 1s
+    
+}
+.music-icon:hover {
+    background-color: var(--nav)
+}
+.plus {
+    height: 5vh;
+    padding: 8px;
+    border-radius: 30px;
+    background-color: var(--primary); 
+    animation: bounce 2s;
+
+}
+.plus:hover {
+    background-color: var(--nav)
+}
+.music-icon:active {
+    background-color: var(--highlight); 
+    height: 4vh;
+    width: 5vw;
+}
+.plus:active {
+    background-color: var(--highlight);
+    height: 4vh;
+    width: 5vw;
+}
+.friends-icon:active {
+    background-color: var(--highlight);
+    height: 5.5vh;
+    width: 6.5vw;
+}
+.brand:active {
+    background-color: var(--highlight)
+}
+

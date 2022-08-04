@@ -1,8 +1,4 @@
 import React from 'react'; 
-import { Link } from 'react-router-dom'
-import userIcon from "../../assets/img/userIcon.png";
-import Login from "../Login/login"
-import Popup from "../Popup/popup"
 import { useState } from 'react'
 import Navbar from './Navbar'
 
