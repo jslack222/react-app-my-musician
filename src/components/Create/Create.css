@@ -1,0 +1,93 @@
+.CreateCard {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 1s;
+    /* box-shadow: 11px 12px 13px 12px rgba(255, 255, 255, 0.2); */
+
+}
+
+.CardContainer {
+    padding: 32px;
+    width: 60vw;
+    max-width: 640px;
+    border-radius: 14px;
+    background-color: rgb(29, 29, 29);
+    text-align: center;
+    box-shadow: 11px 12px 13px 12px rgb(255, 255, 255);
+}
+
+.profile-pic-post {
+    height: 6vh;
+    padding: 5px;
+    border-radius: 30px;
+    background-color: var(--primary);
+    animation: bounce 2s;
+    display: inline-block;
+    margin: 3vw;
+    
+}
+.name-heading{
+    display: flex;
+    align-items: center;
+    
+    
+    
+}
+.profile-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3px;
+
+    
+}
+.heading-create {
+    color: white;
+    font-size: 4vh; 
+    padding-top: 0;
+}
+.post-Cbutton {
+    height: 4vh;
+    width: 5vw; 
+    font-size: 10px; 
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.post-content {
+    background-color:rgb(81, 81, 81); 
+    color: white;
+    padding: 20px;
+    border-radius: 16px;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 18px;
+    align-items: center; 
+    width: 45vw;
+    justify-content: center;
+    resize: none;
+
+}
+.post-content::-webkit-scrollbar {
+    color: transparent; 
+    background-color: transparent;
+}
+.post-content:hover {
+    background-color: var(--primary); 
+
+    
+}
+.post-button-container {
+    padding-top: 25px;
+}
+.post-btn {
+    border-radius: 16px; 
+    width: 94%;
+    background-color: var(--primary)
+}
+.post-btn:hover {
+    background-color: var(--nav)
+}

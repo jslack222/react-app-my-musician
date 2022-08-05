@@ -10,6 +10,7 @@ import profile from "../../assets/img/profile.jpg"
 import PopupLog from "../Popup/logout"
 import {useState} from "react"
 import logoutIcon from "../../assets/img/logout.png";
+import CreateCard from '../Create/Create';
 
 const Navbar = (props) => {
 
@@ -18,7 +19,8 @@ const Navbar = (props) => {
     
   }
   const [buttonPopup, setButtonPopup] = useState(false);
-  
+  const [createPopup, setCreatePopup] = useState(false);
+
   return (
     <div className="global">
       <Link className="brand-link" to="/">
@@ -27,9 +29,12 @@ const Navbar = (props) => {
       <nav className="nav">
         <ul className="nav_menu">
           <li className="nav_item">
-            <Link style={linkStyle} to="/create">
+            <span
+              style={linkStyle}
+              onClick={() => setCreatePopup(!createPopup)}
+            >
               <img src={plusIcon} className="plus" />
-            </Link>
+            </span>
           </li>
           <li className="nav_item">
             <Link className="nav_link" to="/music">
@@ -46,13 +51,12 @@ const Navbar = (props) => {
             </Link>
           </li>
           <li className="nav_item">
-            <Link
-              onMouseOver={() => setButtonPopup(true)}
-              className="nav_link"
-              to="/myprofile"
+            <span
+              onClick={() => setButtonPopup(!buttonPopup)}
+              className="profile-nav"
             >
               <img src={profile} alt="friends-icon" className="friends-icon" />
-            </Link>
+            </span>
           </li>
         </ul>
         <div className="nav__toggler">
@@ -64,16 +68,36 @@ const Navbar = (props) => {
       <PopupLog trigger={buttonPopup} setTrigger={setButtonPopup}>
         <div className="logout-wrap">
           <div className="profile-container">
-            <Link to="/myprofile">My Profile</Link>
+            <Link to="/myprofile">
+              <button className="profile-btn">My Profile</button>
+            </Link>
           </div>
           <div className="space"></div>
           <div className="btn-container">
             <button className="logout-btn">
-              <img src={logoutIcon} alt="" /><p>Logout</p>
+              <img src={logoutIcon} alt="" />
+              <p>Logout</p>
             </button>
           </div>
         </div>
       </PopupLog>
+      <CreateCard trigger={createPopup} setTrigger={setCreatePopup}>
+        <div className="card-inner">
+          <h3 className="heading-create">Create Post</h3>
+          <div className="name-heading">
+            <p className="profile-name">
+              <img className="profile-pic-post" src={profile} alt=""></img>
+              Jonathan Slack
+            </p>
+          </div>
+          <div className="post-wrap">
+            <textarea rows="12"className="post-content" placeholder= 'What is on your mind?' />
+          </div>
+          <div className='post-button-container'>
+            <button className="post-btn">Post</button>
+          </div>
+        </div>
+      </CreateCard>
     </div>
   );
 }

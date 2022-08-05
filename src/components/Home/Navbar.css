@@ -68,20 +68,47 @@ li {
 }
 .music-icon:active {
     background-color: var(--highlight); 
-    height: 4vh;
-    width: 5vw;
+    transform: translateY(4px);
 }
 .plus:active {
     background-color: var(--highlight);
-    height: 4vh;
-    width: 5vw;
+    transform: translateY(4px);
 }
 .friends-icon:active {
     background-color: var(--highlight);
-    height: 5.5vh;
-    width: 6.5vw;
+    transform: translateY(4px);
 }
 .brand:active {
+    background-color: var(--highlight);
+    transform: translateY(4px);
+}
+.Link {
+    text-decoration: none; 
+}
+.profile-btn {
+    background-color: var(--primary);
+    border-radius: 16px;
+    width: 33vw;
+}
+.profile-btn:hover {
+    background-color: var(--nav);
+    
+}
+.profile-btn:active {
+    background-color: var(--highlight);
+
+}
+.profile-container:hover {
+    background-color: var(--nav)
+}
+.profile-container:active {
     background-color: var(--highlight)
 }
-
+.profile-container {
+    background-color: var(--primary);
+    border-radius: 16px;
+    padding: 10px 0px
+}
+.profile-nav:hover {
+    cursor:pointer;
+}

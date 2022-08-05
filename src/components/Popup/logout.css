@@ -1,6 +1,6 @@
 .logout-container {
     position: absolute;
-    top: 22vh;
+    top: 27vh;
     left: 80vw;
     margin-right: -50%;
     transform: translate(-50%, -50%);
@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     padding: 32px;
-    width: 30vw;
+    width: 32vw;
     max-width: 640px;
     border-radius: 14px;
     background-color: rgb(29, 29, 29);
@@ -37,11 +37,15 @@
     justify-content: center;
     background-color: transparent; 
     border: none;
-    width: 50vw;
+    width: 33vw;
     border-radius: none;
+    
 }
 .logout-btn:hover {
     background-color: var(--nav);
+}
+.logout-btn:active {
+    background-color: var(--highlight);
 }
 .btn-container {
     display: flex;
@@ -50,10 +54,14 @@
     justify-content: center;
     border-radius: 16px;
     background-color: var(--primary);
+    padding: 10px 0px
 
 }
 .btn-container:hover {
     background-color: var(--nav)
+}
+.btn-container:active {
+    background-color: var(--highlight)
 }
 .space {
     padding: 15px;
