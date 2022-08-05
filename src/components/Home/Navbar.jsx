@@ -66,6 +66,7 @@ const Navbar = (props) => {
           <div className="profile-container">
             <Link to="/myprofile">My Profile</Link>
           </div>
+          <div className="space"></div>
           <div className="btn-container">
             <button className="logout-btn">
               <img src={logoutIcon} alt="" /><p>Logout</p>

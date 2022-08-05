@@ -7,6 +7,8 @@
     animation: fadeIn 1s;
 }
 .logout-inner {
+    display: flex;
+    justify-content: center;
     padding: 32px;
     width: 30vw;
     max-width: 640px;
@@ -34,14 +36,25 @@
     text-align: center; 
     justify-content: center;
     background-color: transparent; 
-    border: solid 1px var(--secondary); 
+    border: none;
     width: 50vw;
     border-radius: none;
 }
+.logout-btn:hover {
+    background-color: var(--nav);
+}
 .btn-container {
     display: flex;
-    padding-top: 30px
+    align-items: center;
+    width: 34vw;
+    justify-content: center;
+    border-radius: 16px;
+    background-color: var(--primary);
+
 }
-.logout-btn:hover {
+.btn-container:hover {
     background-color: var(--nav)
+}
+.space {
+    padding: 15px;
 }
