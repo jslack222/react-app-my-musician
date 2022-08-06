@@ -1,0 +1,51 @@
+.profile-outer-div {
+    background-color: var(--primary)
+}
+.pp-icon {
+    position: absolute;
+    top: 40vh;
+    height: 20vh;
+    padding: 5px;
+    border-radius: 80px;
+    background-color: var(--highlight);
+    border: solid 4px var(--primary);
+    animation: bounce 3s;
+    margin: 3vw;
+   
+}
+.pp-icon:hover {
+    filter: brightness(110%);
+    cursor: pointer;
+}
+.img-cover-container {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(var(--highlight), var(--highlight), rgba(91, 154, 152, 0), rgba(106, 108, 108, 0))
+}
+.cover-img {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 45vh; 
+    width: 100%;
+    object-fit: cover;
+    max-width: 1150px;
+    max-height: 110%;
+    object-position: 100% 5;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    
+}
+.pp-icon:active {
+    transform: scale(0.98)
+}
+.cover-img:active {
+    transform: scale(0.99)
+}
+.cover-img:hover {
+    cursor: pointer;
+}
+.info-section {
+    background-color: var(--primary);
+    height: 40vh
+}

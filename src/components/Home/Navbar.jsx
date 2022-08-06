@@ -11,6 +11,7 @@ import PopupLog from "../Popup/logout"
 import {useState} from "react"
 import logoutIcon from "../../assets/img/logout.png";
 import CreateCard from '../Create/Create';
+import ToolTips from '../Tooltips/Tooltips'
 
 const Navbar = (props) => {
 
@@ -42,7 +43,12 @@ const Navbar = (props) => {
             </Link>
           </li>
           <li className="nav_item">
-            <Link className="nav_link" to="/friends">
+            <Link
+              id="friends-div"
+              data-tooltip="Friends"
+              className="nav_link"
+              to="/friends"
+            >
               <img
                 src={peopleIcon}
                 alt="friends-icon"
@@ -68,14 +74,14 @@ const Navbar = (props) => {
       <PopupLog trigger={buttonPopup} setTrigger={setButtonPopup}>
         <div className="logout-wrap">
           <div className="profile-container">
-            <Link to="/myprofile">
+            <Link onClick={() => setButtonPopup(!buttonPopup)} to="/myprofile">
               <button className="profile-btn">My Profile</button>
             </Link>
           </div>
           <div className="space"></div>
           <div className="btn-container">
             <button className="logout-btn">
-              <img src={logoutIcon} alt="" />
+              <img className="logout-img"src={logoutIcon} alt="" />
               <p>Logout</p>
             </button>
           </div>
@@ -91,9 +97,13 @@ const Navbar = (props) => {
             </p>
           </div>
           <div className="post-wrap">
-            <textarea rows="12"className="post-content" placeholder= 'What is on your mind?' />
+            <textarea
+              rows="12"
+              className="post-content"
+              placeholder="What is on your mind?"
+            />
           </div>
-          <div className='post-button-container'>
+          <div className="post-button-container">
             <button className="post-btn">Post</button>
           </div>
         </div>

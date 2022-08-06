@@ -68,19 +68,19 @@ li {
 }
 .music-icon:active {
     background-color: var(--highlight); 
-    transform: translateY(4px);
+    transform: scale(0.90);
 }
 .plus:active {
     background-color: var(--highlight);
-    transform: translateY(4px);
+    transform: scale(0.90);
 }
 .friends-icon:active {
     background-color: var(--highlight);
-    transform: translateY(4px);
+    transform: scale(0.90);
 }
 .brand:active {
     background-color: var(--highlight);
-    transform: translateY(4px);
+    transform: scale(0.90);
 }
 .Link {
     text-decoration: none; 
@@ -89,9 +89,12 @@ li {
     background-color: var(--primary);
     border-radius: 16px;
     width: 33vw;
+    height: 5vh;
+    font-size: 15px;
+    
 }
 .profile-btn:hover {
-    background-color: var(--nav);
+    background-color: transparent;
     
 }
 .profile-btn:active {
@@ -99,7 +102,8 @@ li {
 
 }
 .profile-container:hover {
-    background-color: var(--nav)
+    background-color: var(--nav);
+    cursor: pointer;
 }
 .profile-container:active {
     background-color: var(--highlight)

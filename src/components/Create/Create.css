@@ -1,5 +1,6 @@
 .CreateCard {
     position: absolute;
+    z-index: 3;
     top: 56%;
     left: 50%;
     margin-right: -50%;
