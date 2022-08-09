@@ -2,12 +2,26 @@ import userIcon from '../../assets/img/userIcon.png'
 import emailIcon from '../../assets/img/email_icon.png'
 import lockIcon from '../../assets/img/lock_icon.png'
 import Popup from '../Popup/popup'
-import {useState} from 'react'
+import { useState, useRef } from 'react'
+import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 
 
 const Login = (props) => {
   const [buttonPopup, setButtonPopup] = useState(false);
-    
+  const [email, setEmail] = useState("") 
+  const [password, setPassword] = useState("")
+  const [errorMessages, setErrorMessages] = useState({})
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    axios.post('/login', { email, password })
+      .then((res) => {
+      return res.data
+    })
+  }
+  
   return (
     <div className="main">
       <div className="sub-main">
@@ -17,23 +31,44 @@ const Login = (props) => {
               <img src={userIcon} alt="user icon" className="profile" />
             </div>
           </div>
-
-          <div>
-            <h1 className="connect">
-              Connect with other musicians around the world
-            </h1>
+          <form onSubmit={handleLogin}>
             <div>
-              <img src={emailIcon} alt="email icon" className="input-icons" />
-              <input type="text" placeholder="username" className="name" />
+              <h1 className="connect">
+                Connect with other musicians around the world
+              </h1>
+              <div>
+                <img src={emailIcon} alt="email icon" className="input-icons" />
+                <input
+                  type="text"
+                  value={email}
+                  placeholder="email"
+                  className="name"
+                  onChange={({ target }) => setEmail(target.value)}
+                />
+                
+              </div>
+              <div className="second-input">
+                <img
+                  src={lockIcon}
+                  alt="password icon"
+                  className="input-icons"
+                />
+                <input
+                  type="password"
+                  value={password}
+                  placeholder="password"
+                  className="name"
+                  onChange={({ target }) => setPassword(target.value)}
+                />
+               
+              </div>
+              <div className="login-button">
+                <button type="submit" className="login-button">
+                  Login
+                </button>
+              </div>
             </div>
-            <div className="second-input">
-              <img src={lockIcon} alt="password icon" className="input-icons" />
-              <input type="password" placeholder="password" className="name" />
-            </div>
-            <div className="login-button">
-              <button className="login-button">Login</button>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
 

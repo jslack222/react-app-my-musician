@@ -19,8 +19,15 @@ const Navbar = (props) => {
      
     
   }
+
   const [buttonPopup, setButtonPopup] = useState(false);
   const [createPopup, setCreatePopup] = useState(false);
+
+  const postContent = () => setCreatePopup(!createPopup)
+  const Test = () => alert("this works")
+  const OpenPp = () => setButtonPopup(!buttonPopup)
+  
+  
 
   return (
     <div className="global">
@@ -81,7 +88,7 @@ const Navbar = (props) => {
           <div className="space"></div>
           <div className="btn-container">
             <button className="logout-btn">
-              <img className="logout-img"src={logoutIcon} alt="" />
+              <img className="logout-img" src={logoutIcon} alt="" />
               <p>Logout</p>
             </button>
           </div>
@@ -92,7 +99,14 @@ const Navbar = (props) => {
           <h3 className="heading-create">Create Post</h3>
           <div className="name-heading">
             <p className="profile-name">
-              <img className="profile-pic-post" src={profile} alt=""></img>
+              <Link to="/myprofile">
+                <img
+                  onClick={() => setCreatePopup(!createPopup)}
+                  className="profile-pic-post"
+                  src={profile}
+                  alt=""
+                ></img>
+              </Link>
               Jonathan Slack
             </p>
           </div>
@@ -104,7 +118,7 @@ const Navbar = (props) => {
             />
           </div>
           <div className="post-button-container">
-            <button className="post-btn">Post</button>
+            <button onClick={() => { postContent(); Test(); }} className="post-btn">Post</button>
           </div>
         </div>
       </CreateCard>

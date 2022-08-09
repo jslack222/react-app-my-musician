@@ -6,7 +6,7 @@ import Login from './components/Login/login'
 import {useState} from 'react'
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true)
+  const [loggedIn, setLoggedIn] = useState(false)
 
   return (
     <div className="App">

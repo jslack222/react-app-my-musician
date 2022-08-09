@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const app = express();
-// const {} = "./controller.js"
+const {loginUser, createUser} = require("./controller.js")
 
 const { SERVER_PORT } = process.env;
 
@@ -14,7 +14,8 @@ app.get('/',(req,res) => {
 })
 
 
-
+app.post("/login", loginUser);
+app.post("/popup", createUser);
 
 
 
