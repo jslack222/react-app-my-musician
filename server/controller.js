@@ -14,7 +14,7 @@ const sequelize = new Sequelize(DATABASE_URL, {
 
 module.exports = {
   createUser: (req, res) => {
-    const { firstname, lastname, email, password } = req.body;
+    const { firstname, lastname, user, pw } = req.body;
     sequelize
       .query(
         `INSERT INTO user_profile (
@@ -25,11 +25,9 @@ module.exports = {
        VALUES (
         '${firstname}',
         '${lastname}',
-        '${email}', 
-        '${password}'
-       )
-    
-    )`
+        '${user}', 
+        '${pw}'
+       ) RETURNING *` 
       )
       .then((dbRes) => {
         res.status(200).send(dbRes[0]);
@@ -42,7 +40,14 @@ module.exports = {
       AND password = '${req.body.password}'`
     )
       .then((dbRes) => {
-        res.status(200).send("success"); 
+        console.log(dbRes)
+        if (dbRes[0].length === 1) {
+          res.status(200).send("success"); 
+          return
+        } else {
+          res.status(500).send("username or password incorrect")
+        }
+        
       })
     .catch((err) => console.log('loginUser function is erroring', err))
   }

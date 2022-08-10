@@ -7,6 +7,10 @@ import {useState} from 'react'
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)
+  function setStatus() {
+    setLoggedIn(!loggedIn)
+  }
+
 
   return (
     <div className="App">
@@ -16,7 +20,7 @@ function App() {
           {Routes}
         </div>
       ) : (
-        <Login />
+        <Login loggedIn={setStatus} />
       )}
     </div>
   );

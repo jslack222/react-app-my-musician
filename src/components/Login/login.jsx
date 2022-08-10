@@ -11,19 +11,106 @@ const Login = (props) => {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [email, setEmail] = useState("") 
   const [password, setPassword] = useState("")
-  const [errorMessages, setErrorMessages] = useState({})
-  const navigate = useNavigate();
+  const [error, setError] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [firstname, setFirstname] = useState("")
+  const [lastname, setLastname] = useState("")
+  const [pw, setPw] = useState("");
+  const [user, setUser] = useState("");
+  const [signuperr, setSignuperr] = useState(false)
+
+  
 
   const handleLogin = async (e) => {
     e.preventDefault()
     axios.post('/login', { email, password })
       .then((res) => {
-      return res.data
+        localStorage.setItem("user_profile", JSON.stringify(res.data.id));
+        localStorage.setItem("email", res.data.email);
+        props.loggedIn()
+      })
+      .catch((err) => {
+        setError(err)
     })
+  }
+  const validate = () => {
+    const errors = {};
+    if (firstname === "") {
+      errors.firstname = setSignuperr(true);
+      setButtonPopup(true);
+    }
+    if (lastname === "") {
+      errors.lastname = setSignuperr(true);
+      setButtonPopup(true);
+    }
+    if (user === "") {
+      errors.email = setSignuperr(true);
+      setButtonPopup(true);
+    }
+    if (pw === "") {
+      errors.password = setSignuperr(true);
+      setButtonPopup(true);
+    }
+    return errors;
+  };
+
+  const postUser = async (e) => {
+    e.preventDefault()
+    let errors = await validate();
+    console.log(errors)
+    if (Object.keys(errors).length === 0) {
+      axios
+        .post("/popup", { firstname, user, pw, lastname })
+        .then((res) => {
+          localStorage.setItem("user_profile", res.data[0].id);
+          localStorage.setItem("email", res.data[0].email);
+          setSubmitted(true);
+          setButtonPopup(false);
+        })
+        .catch((err) => {
+          setSignuperr(err);
+        });
+    }
+    
   }
   
   return (
     <div className="main">
+      {error ? (
+        <div className="login-error">
+          <div className="error-inner">
+            <img src="" alt="" />
+            <h1 className="error-message">Invalid Username & Password</h1>
+            <p className="X" onClick={() => setError(false)}>
+              Try Again
+            </p>
+          </div>
+        </div>
+      ) : null}
+      {signuperr ? (
+        <div className="login-error">
+          <div className="error-inner">
+            <img src="" alt="" />
+            <h1 className="error-message">
+              Please Enter in all required fields
+            </h1>
+            <p className="X" onClick={() => setSignuperr(false)}>
+              Try Again
+            </p>
+          </div>
+        </div>
+      ) : null}
+      {submitted ? (
+        <div className="login-error">
+          <div className="error-inner">
+            <img src="" alt="" />
+            <h1 className="error-message">Thank you for signing up</h1>
+            <p className="X" onClick={() => props.loggedIn()}>
+              Login Now
+            </p>
+          </div>
+        </div>
+      ) : null}
       <div className="sub-main">
         <div>
           <div className="imgs">
@@ -45,7 +132,6 @@ const Login = (props) => {
                   className="name"
                   onChange={({ target }) => setEmail(target.value)}
                 />
-                
               </div>
               <div className="second-input">
                 <img
@@ -60,7 +146,6 @@ const Login = (props) => {
                   className="name"
                   onChange={({ target }) => setPassword(target.value)}
                 />
-               
               </div>
               <div className="login-button">
                 <button type="submit" className="login-button">
@@ -80,19 +165,39 @@ const Login = (props) => {
       </div>
       <div className="empty"></div>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-        <h3>Register</h3>
-        <p>First Name:</p>
-        <input type="text" className="fNameForm" />
-        <p>Last Name:</p>
-        <input type="text" className="lNameForm" />
-        <p>Email:</p>
-        <input type="text" className="emailForm" />
-        <p>Password:</p>
-        <input type="password" className="pwForm" />
-        <br className="space" />
-        <div className="button-container">
-          <button className="submit-btn">Submit</button>
-        </div>
+        <form onSubmit={postUser}>
+          <h3>Register</h3>
+          <p>First Name:</p>
+          <input
+            type="text"
+            className="fNameForm"
+            onChange={({ target }) => setFirstname(target.value)}
+          />
+          <p>Last Name:</p>
+          <input
+            type="text"
+            className="lNameForm"
+            onChange={({ target }) => setLastname(target.value)}
+          />
+          <p>Email:</p>
+          <input
+            type="email"
+            className="emailForm"
+            onChange={({ target }) => setUser(target.value)}
+          />
+          <p>Password:</p>
+          <input
+            type="password"
+            className="pwForm"
+            onChange={({ target }) => setPw(target.value)}
+          />
+          <br className="space" />
+          <div className="button-container">
+            <button type="submit" className="submit-btn">
+              Submit
+            </button>
+          </div>
+        </form>
       </Popup>
     </div>
   );
