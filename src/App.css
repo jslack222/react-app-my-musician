@@ -49,8 +49,6 @@
   justify-content: center;
   display: flex;
   background-color: transparent;
-  
-
 }
 .imgs:hover{
   animation: bounce 1s

@@ -6,6 +6,7 @@ import Login from './components/Login/login'
 import {useState} from 'react'
 
 function App() {
+  // const [userObject, setUserObject] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
   function setStatus() {
     setLoggedIn(!loggedIn)
