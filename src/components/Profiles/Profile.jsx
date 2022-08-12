@@ -3,25 +3,37 @@ import profile from "../../assets/img/profile.jpg"
 import "./Profile.css"
 import CoverImg from "../../assets/img/cover-img.jpg"
 import {Link} from 'react-router-dom'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Posts from './mypost'
 import AboutCard from './about'
 import MyMusic from './mymusic'
+import CreateCardTwo from "./createtwo"
+import PostsTwo from './mypost-2'
 
 
 const Profile = (props) => {
-  const [postCard, setPostCard] = useState(true); 
-  const [aboutCard, setAboutCard] = useState(false); 
-  const [musicCard, setMusicCard] = useState(false); 
-  
-  const truePost = () => setPostCard(true)
-  const noAbout = () => setAboutCard(false); 
-  const noMusic = () => setMusicCard(false);
-  const noPost = () => setPostCard(false); 
-  const trueAbout = () => setAboutCard(true); 
-  const trueMusic = () => setMusicCard(true); 
+  const [postCard, setPostCard] = useState(true);
+  const [aboutCard, setAboutCard] = useState(false);
+  const [musicCard, setMusicCard] = useState(false);
+  const [userObject, setUserObject] = useState({})
+  const [createPopup, setCreatePopup] = useState(false);
 
-  
+  const truePost = () => setPostCard(true);
+  const noAbout = () => setAboutCard(false);
+  const noMusic = () => setMusicCard(false);
+  const noPost = () => setPostCard(false);
+  const trueAbout = () => setAboutCard(true);
+  const trueMusic = () => setMusicCard(true);
+  const postContent = () => setCreatePopup(!createPopup);
+
+  // useEffect(() => {
+  // let user = localStorage.getItem("user_profile");
+  //   if (!user) {
+  //     console.log(user)
+  //     let userObj = JSON.parse(user);
+  //     setUserObject(userObj);
+  //   }
+  // }, [])
 
   return (
     <div className="profile-outer-div">
@@ -85,7 +97,6 @@ const Profile = (props) => {
                 <div className="links-inner-body">
                   <Posts trigger={postCard} setTrigger={setPostCard}>
                     <div className="post-card-inner">
-                      <h3 className="profile-create">Create Post</h3>
                       <div className="name-heading">
                         <p className="profile-name">
                           <Link to="/myprofile">
@@ -95,14 +106,14 @@ const Profile = (props) => {
                               alt=""
                             ></img>
                           </Link>
-                          Jonathan Slack
                         </p>
                       </div>
                       <div className="post-profile-wrap">
                         <textarea
-                          rows="4"
+                          onClick={() => setCreatePopup(!createPopup)}
+                          rows="1"
                           className="post-content"
-                          placeholder="What is on your mind?"
+                          placeholder="What's on your mind Jonathan?"
                         />
                       </div>
                     </div>
@@ -113,6 +124,52 @@ const Profile = (props) => {
                   <MyMusic trigger={musicCard} setTrigger={setMusicCard}>
                     <h1>This is the music component</h1>
                   </MyMusic>
+                  <PostsTwo trigger={postCard} setTrigger={setPostCard} >
+                    <div className="posts-two-master">
+                      <div className="posts-two-block-1">
+                        <h1 className="posts-two-heading">Posts</h1>
+                      </div>
+                        </div>
+                  </PostsTwo>
+                  <CreateCardTwo
+                    className="CreateCard2"
+                    trigger={createPopup}
+                    setTrigger={setCreatePopup}
+                  >
+                    <div className="card-inner">
+                      <h3 className="heading-create">Create Post</h3>
+                      <div className="name-heading">
+                        <p className="profile-name">
+                          <Link to="/myprofile">
+                            <img
+                              onClick={() => setCreatePopup(!createPopup)}
+                              className="profile-pic-post"
+                              src={profile}
+                              alt=""
+                            ></img>
+                          </Link>
+                          Jonathan Slack
+                        </p>
+                      </div>
+                      <div className="post-wrap">
+                        <textarea
+                          rows="12"
+                          className="post-content-1"
+                          placeholder="What is on your mind?"
+                        />
+                      </div>
+                      <div className="post-button-container">
+                        <button
+                          onClick={() => {
+                            postContent();
+                          }}
+                          className="post-btn"
+                        >
+                          Post
+                        </button>
+                      </div>
+                    </div>
+                  </CreateCardTwo>
                 </div>
               </div>
             </div>
@@ -121,7 +178,6 @@ const Profile = (props) => {
       </div>
     </div>
   );
-
 }
 export default Profile; 
 

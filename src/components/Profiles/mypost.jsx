@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const Posts = (props) => {
     return (
     props.trigger && (

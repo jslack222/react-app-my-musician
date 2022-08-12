@@ -23,10 +23,13 @@ const Login = (props) => {
 
   const handleLogin = async (e) => {
     e.preventDefault()
+    console.log("whats up")
     axios.post('/login', { email, password })
       .then((res) => {
-        localStorage.setItem("user_profile", JSON.stringify(res.data.id));
-        localStorage.setItem("email", res.data.email);
+        console.log("waz up")
+        localStorage.setItem("user_profile", JSON.stringify(res.data[0][0]));
+        console.log(res.data)
+        localStorage.setItem("email", res.data[0][0].email);
         props.loggedIn()
       })
       .catch((err) => {
@@ -62,8 +65,9 @@ const Login = (props) => {
       axios
         .post("/popup", { firstname, user, pw, lastname })
         .then((res) => {
-          localStorage.setItem("user_profile", res.data[0].id);
-          localStorage.setItem("email", res.data[0].email);
+          localStorage.setItem("user_profile", res.data[0][0].id);
+          localStorage.setItem("email", res.data[0][0].email);
+          console.log(res.data)
           setSubmitted(true);
           setButtonPopup(false);
         })

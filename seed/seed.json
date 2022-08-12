@@ -8,5 +8,12 @@ date_of_birth DATE,
 country VARCHAR(100), 
 music_genre VARCHAR(100)
 )
+
 INSERT INTO user_profile (id, firstname, lastname, password, email)
 VALUES ('1', 'Jonathan', 'Slack', 'Slack!836', 'jlowcapo@gmail.com')
+
+CREATE TABLE POST (
+Id SERIAL PRIMARY KEY,
+user_profile_id INTEGER references user_profile(Id),
+comment_char VARCHAR (500)
+)

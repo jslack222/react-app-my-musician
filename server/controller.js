@@ -27,7 +27,7 @@ module.exports = {
         '${lastname}',
         '${user}', 
         '${pw}'
-       ) RETURNING *` 
+       ) RETURNING *`
       )
       .then((dbRes) => {
         res.status(200).send(dbRes[0]);
@@ -42,14 +42,28 @@ module.exports = {
       .then((dbRes) => {
         console.log(dbRes)
         if (dbRes[0].length === 1) {
-          res.status(200).send("success"); 
+          res.status(200).send(dbRes);
           return
         } else {
           res.status(500).send("username or password incorrect")
         }
         
       })
-    .catch((err) => console.log('loginUser function is erroring', err))
+      .catch((err) => console.log('loginUser function is erroring', err))
+  },
+  creatPost: (req, res) => {
+    sequelize.query(
+      'INSERT INTO post (comment_char)'
+    )
+  },
+  getPost: (req, res) => {
+    sequelize.query(
+      'SELECT * FROM post'
+    )
+      .then((dbRes) => {
+        res.status(200).send(dbRes[0]);
+      })
+      .catch((err) => console.log("getPost function is not working", err));
   }
-};
+}
 

@@ -113,7 +113,7 @@ const Navbar = (props) => {
           <div className="post-wrap">
             <textarea
               rows="12"
-              className="post-content"
+              className="post-content-1"
               placeholder="What is on your mind?"
             />
           </div>
