@@ -51,10 +51,16 @@ module.exports = {
       })
       .catch((err) => console.log('loginUser function is erroring', err))
   },
-  creatPost: (req, res) => {
+  createPost: (req, res) => {
+    const {comment_char} = req.body
     sequelize.query(
-      'INSERT INTO post (comment_char)'
+      `INSERT INTO post (comment_char)
+      VALUES ('${comment_char}') RETURNING *`
     )
+      .then((dbRes) => {
+        res.status(200).send(dbRes[0])
+      })
+      .catch((err) => console.log('createPost function is erroring', err))
   },
   getPost: (req, res) => {
     sequelize.query(

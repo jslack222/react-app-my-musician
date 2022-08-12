@@ -10,7 +10,7 @@ const PostsTwo = (props) => {
             .then((res) => {
             setPostRender(res.data)
         })
-    }, [])
+    }, [props.input])
     console.log(postRender)
 
     const postDisplay = postRender.map(post => {

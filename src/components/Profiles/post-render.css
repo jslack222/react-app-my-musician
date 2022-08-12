@@ -5,14 +5,19 @@
     background-color: var(--primary); 
     height: 100%;
     width: 65vw; 
-    border-radius: 16px; 
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px; 
+}
+.post-render-master:hover {
+    cursor:pointer;
+    background-color: #585858
+    
 }
 .post-render-inner {
     display: flex; 
     flex-direction: column; 
     width: 100%; 
     margin-top: 0px; 
-
 }
 .comment-section {
     display: flex; 
@@ -33,7 +38,7 @@
     margin-top: -8px; 
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    border-bottom-right-radius: 16px;
+    border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
     border-left: white solid .5px;
 }
@@ -52,7 +57,7 @@
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 16px;
+    border-bottom-left-radius: 0px;
     border-right: white solid .5px; 
 }
 .like-btn:hover {

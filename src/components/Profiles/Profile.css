@@ -224,7 +224,7 @@ width: 100%;
 .CreateCardTwo {
     position: absolute;
     z-index: 3;
-    top: -30vh;
+    top: -15vh;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);

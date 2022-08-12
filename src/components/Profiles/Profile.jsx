@@ -9,6 +9,7 @@ import AboutCard from './about'
 import MyMusic from './mymusic'
 import CreateCardTwo from "./createtwo"
 import PostsTwo from './mypost-2'
+import axios from 'axios'
 
 
 const Profile = (props) => {
@@ -17,6 +18,11 @@ const Profile = (props) => {
   const [musicCard, setMusicCard] = useState(false);
   const [userObject, setUserObject] = useState({})
   const [createPopup, setCreatePopup] = useState(false);
+  const [comment_char, setComment_char] = useState(""); 
+  const [signuperr, setSignuperr] = useState(false);
+  const [buttonPopup, setButtonPopup] = useState(false);
+  const [input, setInput] = useState(false); 
+  
 
   const truePost = () => setPostCard(true);
   const noAbout = () => setAboutCard(false);
@@ -26,6 +32,36 @@ const Profile = (props) => {
   const trueMusic = () => setMusicCard(true);
   const postContent = () => setCreatePopup(!createPopup);
 
+
+  const test = () => console.log("good job this works")
+
+  const validate = () => {
+    const errors = {};
+    if (comment_char === "") {
+      errors.comment_char = setSignuperr(true);
+      setButtonPopup(true);
+    }
+    return errors;
+  };
+
+  const handleCreatePost = async(e) => {
+     e.preventDefault()
+    let errors = await validate();
+    console.log(errors)
+    if (Object.keys(errors).length === 0) {
+      axios
+        .post("/myprofile", {comment_char})
+        .then((res) => {
+          localStorage.setItem("post", res.data[0].id);
+          localStorage.setItem("comment_char", res.data[0].comment_char);
+          setInput(!input);
+          console.log(res.data)
+        })
+        .catch((err) => {
+          setSignuperr(err)
+        });
+    }
+  }
   // useEffect(() => {
   // let user = localStorage.getItem("user_profile");
   //   if (!user) {
@@ -37,6 +73,19 @@ const Profile = (props) => {
 
   return (
     <div className="profile-outer-div">
+      {signuperr ? (
+        <div className="login-error">
+          <div className="error-inner">
+            <img src="" alt="" />
+            <h1 className="error-message">
+              Please Enter in all required fields
+            </h1>
+            <p className="X" onClick={() => setSignuperr(false)}>
+              Try Again
+            </p>
+          </div>
+        </div>
+      ) : null}
       <div className="profile-inner-div">
         <div className="img-cover-container">
           <img className="cover-img" src={CoverImg} alt="" />
@@ -124,12 +173,12 @@ const Profile = (props) => {
                   <MyMusic trigger={musicCard} setTrigger={setMusicCard}>
                     <h1>This is the music component</h1>
                   </MyMusic>
-                  <PostsTwo trigger={postCard} setTrigger={setPostCard} >
+                  <PostsTwo input={input} trigger={postCard} setTrigger={setPostCard}>
                     <div className="posts-two-master">
                       <div className="posts-two-block-1">
                         <h1 className="posts-two-heading">Posts</h1>
                       </div>
-                        </div>
+                    </div>
                   </PostsTwo>
                   <CreateCardTwo
                     className="CreateCard2"
@@ -151,23 +200,24 @@ const Profile = (props) => {
                           Jonathan Slack
                         </p>
                       </div>
-                      <div className="post-wrap">
-                        <textarea
-                          rows="12"
-                          className="post-content-1"
-                          placeholder="What is on your mind?"
-                        />
-                      </div>
-                      <div className="post-button-container">
-                        <button
-                          onClick={() => {
-                            postContent();
-                          }}
-                          className="post-btn"
-                        >
-                          Post
-                        </button>
-                      </div>
+                      <form onSubmit={(e) => handleCreatePost(e)}>
+                        <div className="post-wrap">
+                          <textarea
+                            rows="12"
+                            className="post-content-1"
+                            placeholder="What is on your mind?"
+                            onChange={({ target }) => setComment_char(target.value)}
+                          />
+                        </div>
+                        <div className="post-button-container">
+                          <button
+                            type="submit"
+                            className="post-btn"
+                          >
+                            Post
+                          </button>
+                        </div>
+                      </form>
                     </div>
                   </CreateCardTwo>
                 </div>
