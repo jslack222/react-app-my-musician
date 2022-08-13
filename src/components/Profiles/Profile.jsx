@@ -10,6 +10,8 @@ import MyMusic from './mymusic'
 import CreateCardTwo from "./createtwo"
 import PostsTwo from './mypost-2'
 import axios from 'axios'
+import RenderPop from './PRpop'
+import { render } from '@testing-library/react'
 
 
 const Profile = (props) => {
@@ -22,6 +24,7 @@ const Profile = (props) => {
   const [signuperr, setSignuperr] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
   const [input, setInput] = useState(false); 
+  const [renderthat, setRenderThat] = useState(false);
   
 
   const truePost = () => setPostCard(true);

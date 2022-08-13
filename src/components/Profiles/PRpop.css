@@ -1,0 +1,58 @@
+.bullet-master {
+    background-color: rgb(29, 29, 29);
+    position: absolute; 
+    margin-left: 50vw; 
+    margin-top: 5vh;
+    animation: fadeIn 1s;
+    padding: 2vh 5vw;
+    border-radius: 16px;
+    width: 30vw;
+    z-index: 4;
+}
+.bullet-master:hover {
+    background-color:rgb(32, 32, 32)
+}
+.bullet-child-1 {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    background-color: var(--dark);
+    border-radius: 16px;
+    margin-top: 2vh;
+    height: 10vh;
+    
+}
+.bullet-child-1:hover {
+    filter: brightness(1.5)
+}
+.edit-post {
+    background-color: transparent;
+    height: 50%;
+    font-size: 20px;
+}
+.edit-post:hover {
+    background-color: transparent;
+}
+.bullet-child-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    background-color: var(--dark);
+    border-radius: 16px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    height: 10vh;
+}
+.bullet-child-2:hover {
+    filter: brightness(1.5)
+}
+.delete-post {
+    background-color: transparent;
+    height: 50%;
+    font-size: 20px;
+}
+.delete-post:hover {
+    background-color: transparent;
+}

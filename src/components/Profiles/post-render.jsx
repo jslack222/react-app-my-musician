@@ -3,14 +3,25 @@ import profile from "../../assets/img/profile.jpg";
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import "./post-render.css"
+import RenderPop from './PRpop'
 
 const PostRender = (props) => {
     const [createPopup, setCreatePopup] = useState(false)
-    
+  const [renderthat, setRenderThat] = useState(false);
+  
     console.log(props)
     return (
       <div className="post-render-master">
+        <RenderPop trigger={renderthat} setTrigger={setRenderThat}></RenderPop>
         <div className="post-render-inner">
+          <div className="manage-post-container">
+            <span
+              onClick={() => setRenderThat(!renderthat)}
+              className="manage-post-button"
+            >
+              ...
+            </span>
+          </div>
           <div className="name-heading-2">
             <p className="profile-name">
               <Link to="/myprofile">

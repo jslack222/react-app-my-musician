@@ -7,6 +7,7 @@
     width: 65vw; 
     border-top-left-radius: 16px;
     border-top-right-radius: 16px; 
+    justify-content: center;
 }
 .post-render-master:hover {
     cursor:pointer;
@@ -16,12 +17,14 @@
 .post-render-inner {
     display: flex; 
     flex-direction: column; 
+    justify-content: center;
     width: 100%; 
-    margin-top: 0px; 
+    margin-top: -2vh
 }
 .comment-section {
     display: flex; 
     flex-direction: row; 
+    align-items: center;
     width: 100%;
 }
 .comment-line {
@@ -72,8 +75,10 @@
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    width: 100%;
+    width: 90%;
     margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: 6%;
 }
 .profile-pic-post-2 {
     height: 6vh;
@@ -98,4 +103,25 @@
     display: flex;
     align-items: center;
     padding: 0;
+}
+.manage-post-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    height: 5vh;
+    
+}
+.manage-post-button {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-left: 88%;
+    font-size: 40px;
+    height: 3vh; 
+    padding: 0; 
+    color: white; 
+}
+.manage-post-button:hover {
+   color: var(--highlight)
 }
