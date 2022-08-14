@@ -23,17 +23,16 @@ const Login = (props) => {
 
   const handleLogin = async (e) => {
     e.preventDefault()
-    console.log("whats up")
     axios.post('/login', { email, password })
       .then((res) => {
-        console.log("waz up")
         localStorage.setItem("user_profile", JSON.stringify(res.data[0][0]));
+        console.log("waz up");
         console.log(res.data)
         localStorage.setItem("email", res.data[0][0].email);
         props.loggedIn()
       })
       .catch((err) => {
-        setError(err)
+        console.log(err)
     })
   }
   const validate = () => {
@@ -47,11 +46,11 @@ const Login = (props) => {
       setButtonPopup(true);
     }
     if (user === "") {
-      errors.email = setSignuperr(true);
+      errors.user = setSignuperr(true);
       setButtonPopup(true);
     }
     if (pw === "") {
-      errors.password = setSignuperr(true);
+      errors.pw = setSignuperr(true);
       setButtonPopup(true);
     }
     return errors;
@@ -60,7 +59,7 @@ const Login = (props) => {
   const postUser = async (e) => {
     e.preventDefault()
     let errors = await validate();
-    console.log(errors)
+    console.log("whats up")
     if (Object.keys(errors).length === 0) {
       axios
         .post("/popup", { firstname, user, pw, lastname })
@@ -72,7 +71,7 @@ const Login = (props) => {
           setButtonPopup(false);
         })
         .catch((err) => {
-          setSignuperr(err);
+          console.log(err);
         });
     }
     

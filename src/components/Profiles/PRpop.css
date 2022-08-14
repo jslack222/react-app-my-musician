@@ -27,12 +27,21 @@
     filter: brightness(1.5)
 }
 .edit-post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: transparent;
     height: 50%;
     font-size: 20px;
 }
 .edit-post:hover {
     background-color: transparent;
+}
+.pencil-icon {
+    height: 3vh;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
 }
 .bullet-child-2 {
     display: flex;
@@ -49,10 +58,19 @@
     filter: brightness(1.5)
 }
 .delete-post {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
     background-color: transparent;
     height: 50%;
     font-size: 20px;
 }
 .delete-post:hover {
     background-color: transparent;
+}
+.trash-icon {
+    height: 4vh;
+    justify-content: center;
+    align-items: center; 
+    padding: 2px;
 }

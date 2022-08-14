@@ -12,7 +12,7 @@ import Profile from "./components/Profiles/Profile";
 
 function App() {
   const [userObject, setUserObject] = useState({})
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   
   // useEffect(() => {
   // let user = localStorage.getItem("user_profile");
