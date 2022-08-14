@@ -58,6 +58,7 @@ const Profile = (props) => {
           localStorage.setItem("post", res.data[0].id);
           localStorage.setItem("comment_char", res.data[0].comment_char);
           setInput(!input);
+          setCreatePopup(!createPopup);
           console.log(res.data)
         })
         .catch((err) => {

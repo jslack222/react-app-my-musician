@@ -1,25 +1,20 @@
-import React from 'react';
-import PostRender from '../Profiles/post-render'
-import PostsTwo from '../Profiles/mypost-2';
-
+import React from "react";
+import PostsThree from "./PostsThree";
+import "./Home.css"
 
 const Home = () => {
-    return (
-        <div className="Home-div">
-            <main>
-                <h1>this is home</h1>
-
-                <PostsTwo>
-                    <div className="posts-two-master">
-                        <div className="posts-two-block-1">
-                            <h1 className="posts-two-heading">Posts</h1>
-                        </div>
-                    </div>
-                </PostsTwo>
-            </main>
+  return (
+    <div className="Home-div">
+        <div className="home-header-container">
+          <div className="home-header-card">
+            <h1>this is home-card</h1>
+          </div>
         </div>
-    )
-}
+        <div className="home-post-container">
+          <PostsThree></PostsThree>
+        </div>
+    </div>
+  );
+};
 
-
-export default Home; 
+export default Home;

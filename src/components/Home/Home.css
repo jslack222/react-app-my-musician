@@ -1,0 +1,13 @@
+.Home-div {
+    background-color: var(--dark); 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+.home-header-card {
+    background-color: var(--primary); 
+    border-radius: 16px; 
+    height: 40vh;
+    width: 65vw;
+}

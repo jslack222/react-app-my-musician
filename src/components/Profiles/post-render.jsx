@@ -5,11 +5,11 @@ import { useState } from 'react'
 import "./post-render.css"
 import RenderPop from './PRpop'
 
+
 const PostRender = (props) => {
     const [createPopup, setCreatePopup] = useState(false)
   const [renderthat, setRenderThat] = useState(false);
   
-    console.log(props)
     return (
       <div className="post-render-master">
         <RenderPop trigger={renderthat} setTrigger={setRenderThat}></RenderPop>

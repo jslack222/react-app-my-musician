@@ -12,6 +12,9 @@ import {useState} from "react"
 import logoutIcon from "../../assets/img/logout.png";
 import CreateCard from '../Create/Create';
 import ToolTips from '../Tooltips/Tooltips'
+import axios from 'axios'
+
+
 
 const Navbar = (props) => {
 
@@ -19,18 +22,62 @@ const Navbar = (props) => {
      
     
   }
-
+  const [btnpop, SetBtnpop] = useState(false)
   const [buttonPopup, setButtonPopup] = useState(false);
   const [createPopup, setCreatePopup] = useState(false);
+  const [comment_char, setComment_char] = useState("");
+  const [signuperr, setSignuperr] = useState(false);
+  const [input, setInput] = useState(false)
 
   const postContent = () => setCreatePopup(!createPopup)
   const Test = () => alert("this works")
   const OpenPp = () => setButtonPopup(!buttonPopup)
   
+  const validate = () => {
+    const errors = {};
+    if (comment_char === "") {
+      errors.comment_char = setSignuperr(true);
+      setButtonPopup(true);
+    }
+    return errors;
+  };
+
+  const handleCreatePost = async (e) => {
+    e.preventDefault();
+    let errors = await validate();
+    console.log(errors);
+    if (Object.keys(errors).length === 0) {
+      axios
+        .post("/myprofile", { comment_char })
+        .then((res) => {
+          localStorage.setItem("post", res.data[0].id);
+          localStorage.setItem("comment_char", res.data[0].comment_char);
+          setInput(!input);
+          setCreatePopup(!createPopup);
+          console.log(res.data);
+        })
+        .catch((err) => {
+          setSignuperr(err);
+        });
+    }
+  };
   
 
   return (
     <div className="global">
+      {signuperr ? (
+        <div className="login-error">
+          <div className="error-inner">
+            <img src="" alt="" />
+            <h1 className="error-message">
+              Please Enter in all required fields
+            </h1>
+            <p className="X" onClick={() => setSignuperr(false)}>
+              Try Again
+            </p>
+          </div>
+        </div>
+      ) : null}
       <Link className="brand-link" to="/">
         <img className="brand" src={whiteLogo} alt="home-icon" />
       </Link>
@@ -65,7 +112,7 @@ const Navbar = (props) => {
           </li>
           <li className="nav_item">
             <span
-              onClick={() => setButtonPopup(!buttonPopup)}
+              onClick={() => SetBtnpop(!btnpop)}
               className="profile-nav"
             >
               <img src={profile} alt="friends-icon" className="friends-icon" />
@@ -78,10 +125,10 @@ const Navbar = (props) => {
           <div className="line3"></div>
         </div>
       </nav>
-      <PopupLog trigger={buttonPopup} setTrigger={setButtonPopup}>
+      <PopupLog trigger={btnpop} setTrigger={SetBtnpop}>
         <div className="logout-wrap">
           <div className="profile-container">
-            <Link onClick={() => setButtonPopup(!buttonPopup)} to="/myprofile">
+            <Link onClick={() => SetBtnpop(!btnpop)} to="/myprofile">
               <button className="profile-btn">My Profile</button>
             </Link>
           </div>
@@ -110,16 +157,19 @@ const Navbar = (props) => {
               Jonathan Slack
             </p>
           </div>
-          <div className="post-wrap">
-            <textarea
-              rows="12"
-              className="post-content-1"
-              placeholder="What is on your mind?"
-            />
-          </div>
-          <div className="post-button-container">
-            <button onClick={() => { postContent(); Test(); }} className="post-btn">Post</button>
-          </div>
+          <form onSubmit={(e) => handleCreatePost(e)}>
+            <div className="post-wrap">
+              <textarea
+                rows="12"
+                className="post-content-1"
+                placeholder="What is on your mind?"
+                onChange={({ target }) => setComment_char(target.value)}
+              />
+            </div>
+            <div className="post-button-container">
+              <button className="post-btn">Post</button>
+            </div>
+          </form>
         </div>
       </CreateCard>
     </div>

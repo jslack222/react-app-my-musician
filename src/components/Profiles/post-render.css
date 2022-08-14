@@ -112,6 +112,15 @@
     height: 5vh;
     
 }
+@keyframes wipe-enter {
+    0% {
+        transform: scale(0, .025);
+    }
+
+    50% {
+        transform: scale(1, .025);
+    }
+}
 .manage-post-button {
     display: flex; 
     justify-content: center; 
@@ -121,7 +130,11 @@
     height: 3vh; 
     padding: 0; 
     color: white; 
+    
 }
 .manage-post-button:hover {
    color: var(--highlight)
+}
+.manage-post-button:active {
+    transform: scale(.90)
 }

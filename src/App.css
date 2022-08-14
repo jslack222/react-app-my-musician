@@ -254,6 +254,7 @@ header {
     border: var(--highlight) solid 2px;
     height: 17vh; 
     width: 50vw;
+    z-index: 5;
     
 }
 .login-error:hover {
