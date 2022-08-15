@@ -6,11 +6,17 @@
     animation: fadeIn 1s;
     padding: 2vh 5vw;
     border-radius: 16px;
-    width: 30vw;
+    width: 25vw;
     z-index: 4;
 }
 .bullet-master:hover {
     background-color:rgb(32, 32, 32)
+}
+.bullet-child-global {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
 }
 .bullet-child-1 {
     display: flex; 
@@ -19,8 +25,8 @@
     width: 30vw;
     background-color: var(--dark);
     border-radius: 16px;
-    margin-top: 2vh;
-    height: 10vh;
+    margin-top: 1vh;
+    height: 7vh;
     
 }
 .bullet-child-1:hover {
@@ -32,13 +38,13 @@
     align-items: center;
     background-color: transparent;
     height: 50%;
-    font-size: 20px;
+    font-size: 14px;
 }
 .edit-post:hover {
     background-color: transparent;
 }
 .pencil-icon {
-    height: 3vh;
+    height: 2vh;
     justify-content: center;
     align-items: center;
     padding: 8px;
@@ -51,8 +57,8 @@
     background-color: var(--dark);
     border-radius: 16px;
     margin-top: 2vh;
-    margin-bottom: 2vh;
-    height: 10vh;
+    margin-bottom: 1vh;
+    height: 7vh;
 }
 .bullet-child-2:hover {
     filter: brightness(1.5)
@@ -63,13 +69,13 @@
     align-items: center;
     background-color: transparent;
     height: 50%;
-    font-size: 20px;
+    font-size: 14px;
 }
 .delete-post:hover {
     background-color: transparent;
 }
 .trash-icon {
-    height: 4vh;
+    height: 3vh;
     justify-content: center;
     align-items: center; 
     padding: 2px;

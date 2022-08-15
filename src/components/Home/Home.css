@@ -6,8 +6,45 @@
     align-items: center;
 }
 .home-header-card {
-    background-color: var(--primary); 
-    border-radius: 16px; 
-    height: 40vh;
-    width: 65vw;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column
+}
+.newscard-outer {
+    background-color: var(--primary);
+    border-radius: 16px;
+    height: fit-content;
+    width: 63vw;
+    margin-top: 4vh;
+    display: flex; 
+    justify-content: center; 
+    flex-direction: column; 
+    padding-top: 1vh; 
+    padding-bottom: 2vh;
+    padding-left: 2vh; 
+    padding-right: 2vh;
+    
+}
+.newscard-outer:hover {
+    filter: brightness(1.2); 
+    cursor: pointer;
+}
+.news-card-inner {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+.news-url {
+    text-decoration: none;
+    color: white; 
+}
+.news-url:hover {
+    color: var(--highlight); 
+}
+.news-title {
+    display: flex; 
+    flex-direction: column;
+    color: white; 
+    font-size: 4vh;
 }

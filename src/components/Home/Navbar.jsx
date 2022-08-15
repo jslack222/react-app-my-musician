@@ -134,7 +134,7 @@ const Navbar = (props) => {
           </div>
           <div className="space"></div>
           <div className="btn-container">
-            <button className="logout-btn">
+            <button onClick={() => props.setLoggedIn(!props.loggedIn)} className="logout-btn">
               <img className="logout-img" src={logoutIcon} alt="" />
               <p>Logout</p>
             </button>

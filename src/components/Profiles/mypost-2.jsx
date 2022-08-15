@@ -5,16 +5,18 @@ import PostRender from './post-render'
 
 const PostsTwo = (props) => {
     const [postRender, setPostRender] = useState([]); 
+    const toGetPosts = () => {
+        axios.get("/post").then((res) => {
+          setPostRender(res.data);
+        });
+    }
     useEffect(() => {
-        axios.get("/post")
-            .then((res) => {
-            setPostRender(res.data)
-        })
+        toGetPosts()
     }, [props.input])
     console.log(postRender)
 
     const postDisplay = postRender.map(post => {
-        return <PostRender post={post}></PostRender>
+        return <PostRender toGetPosts={toGetPosts} post={post}></PostRender>
     })
 
     return (

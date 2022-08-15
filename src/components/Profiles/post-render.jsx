@@ -9,10 +9,16 @@ import RenderPop from './PRpop'
 const PostRender = (props) => {
     const [createPopup, setCreatePopup] = useState(false)
   const [renderthat, setRenderThat] = useState(false);
-  
+  console.log(props.post)
     return (
       <div className="post-render-master">
-        <RenderPop trigger={renderthat} setTrigger={setRenderThat}></RenderPop>
+        <RenderPop
+          toGetPosts={props.toGetPosts}
+          id={props.post.id}
+          trigger={renderthat}
+          setTrigger={setRenderThat}
+          setRenderThat={setRenderThat}
+        ></RenderPop>
         <div className="post-render-inner">
           <div className="manage-post-container">
             <span

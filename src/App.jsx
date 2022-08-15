@@ -10,7 +10,7 @@ import CreateCard from "./components/Create/Create";
 import Profile from "./components/Profiles/Profile";
 
 
-function App() {
+function App(props) {
   const [userObject, setUserObject] = useState({})
   const [loggedIn, setLoggedIn] = useState(true);
   
@@ -32,7 +32,7 @@ function App() {
     <div className="App">
       {loggedIn ? (
         <div>
-          <Header />
+          <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/friends" element={<Friends />}></Route>

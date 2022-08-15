@@ -3,9 +3,11 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const app = express();
-const {loginUser, createUser, getPost, createPost, deletePost} = require("./controller.js")
+const {loginUser, createUser, getPost, createPost, deletePost, getNews} = require("./controller.js")
 
 const { SERVER_PORT } = process.env;
+
+
 
 app.use(express.json()); 
 
@@ -18,7 +20,8 @@ app.post("/login", loginUser);
 app.post("/popup", createUser);
 app.get("/post", getPost);
 app.post('/myprofile', createPost);
-app.delete('/PRpop', deletePost)
+app.delete('/deletepost/:id', deletePost)
+app.get('/getnews', getNews)
 
 
 const port = process.env.PORT || 5002;

@@ -64,8 +64,9 @@ const Login = (props) => {
       axios
         .post("/popup", { firstname, user, pw, lastname })
         .then((res) => {
-          localStorage.setItem("user_profile", res.data[0][0].id);
-          localStorage.setItem("email", res.data[0][0].email);
+          console.log(res.data)
+          localStorage.setItem("user_profile", res.data[0].id);
+          localStorage.setItem("email", res.data[0].email);
           console.log(res.data)
           setSubmitted(true);
           setButtonPopup(false);

@@ -1,7 +1,28 @@
 require("dotenv").config();
+const { default: axios } = require("axios");
 const Sequelize = require("sequelize");
 // const { formatNamedParameters } = require("sequelize/types/utils");
 const { DATABASE_URL } = process.env;
+const { NEWS_API_KEY } = process.env;
+const {NEWS_URL} = process.env
+
+// const sequelize = new Sequelize(NEWS_URL, {
+//   dialect: "postgres",
+//   dialectOptions: {
+//     ssl: {
+//       rejectedUnauthorized: false,
+//     },
+    
+//   },
+// }); 
+
+// module.exports = {
+//   getNews: (req, res) => {
+    
+//   },
+// };
+
+
 
 const sequelize = new Sequelize(DATABASE_URL, {
   dialect: "postgres",
@@ -75,8 +96,8 @@ module.exports = {
     const { id } = req.params;
     sequelize
       .query(
-        `DELETE FROM appointments
-      WHERE appt_id = ${+id}; 
+        `DELETE FROM post
+      WHERE id = ${+id}; 
       `
       )
       .then((dbRes) => {
@@ -87,5 +108,20 @@ module.exports = {
         console.log("delete posts function is not working")
       );
   },
+  getNews: async(req, res) => {
+    const news = await axios
+      .get(
+        `${NEWS_URL}?access_key=${NEWS_API_KEY}&categories=entertainment&countries=us&keywords=music&limit=10`
+      )
+      .then((res) => {
+        return res.data.data;
+      });
+    console.log(news)
+    const newsResult = news.reverse()
+    console.log(newsResult)
+    res.status(200).send(newsResult)
+  }
 };
+
+
 

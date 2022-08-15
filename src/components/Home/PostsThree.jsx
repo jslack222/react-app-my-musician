@@ -4,11 +4,14 @@ import PostRender from "../Profiles/post-render"
 
 const PostsThree = (props) => {
     const [postRender, setPostRender] = useState([]);
+     const toGetPostsTwo = () => {
+       axios.get("/post").then((res) => {
+           setPostRender(res.data);
+           
+       });
+     };
     useEffect(() => {
-        axios.get("/post")
-            .then((res) => {
-                setPostRender(res.data)
-            })
+       toGetPostsTwo()
     }, [props.input])
     console.log(postRender)
 

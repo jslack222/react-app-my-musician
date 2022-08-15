@@ -172,12 +172,24 @@ const Profile = (props) => {
                     </div>
                   </Posts>
                   <AboutCard trigger={aboutCard} setTrigger={setAboutCard}>
-                    <h1>This is the about component</h1>
+                    <div className="about-card-outer">
+                      <div className="about-card-inner">
+                        <div className="info-buttons">
+                          <button className="overview">
+                            Overview
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </AboutCard>
                   <MyMusic trigger={musicCard} setTrigger={setMusicCard}>
                     <h1>This is the music component</h1>
                   </MyMusic>
-                  <PostsTwo input={input} trigger={postCard} setTrigger={setPostCard}>
+                  <PostsTwo
+                    input={input}
+                    trigger={postCard}
+                    setTrigger={setPostCard}
+                  >
                     <div className="posts-two-master">
                       <div className="posts-two-block-1">
                         <h1 className="posts-two-heading">Posts</h1>
@@ -210,14 +222,13 @@ const Profile = (props) => {
                             rows="12"
                             className="post-content-1"
                             placeholder="What is on your mind?"
-                            onChange={({ target }) => setComment_char(target.value)}
+                            onChange={({ target }) =>
+                              setComment_char(target.value)
+                            }
                           />
                         </div>
                         <div className="post-button-container">
-                          <button
-                            type="submit"
-                            className="post-btn"
-                          >
+                          <button type="submit" className="post-btn">
                             Post
                           </button>
                         </div>
