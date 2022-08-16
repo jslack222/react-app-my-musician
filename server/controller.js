@@ -109,18 +109,20 @@ module.exports = {
         console.log("delete posts function is not working")
       );
   },
-  getNews: async(req, res) => {
-    const news = await axios
-      .get(
-        `${NEWS_URL}?access_key=${NEWS_API_KEY}&categories=entertainment&countries=us&keywords=music&sources=tmz&limit=10`
-      )
-      .then((res) => {
-        return res.data.data;
-      });
-    console.log(news)
-    const newsResult = news.reverse()
-    console.log(newsResult)
-    res.status(200).send(newsResult)
+  getNews: async (req, res) => {
+   await axios
+     .get(
+       `${NEWS_URL}?access_key=${NEWS_API_KEY}&categories=entertainment&countries=us&keywords=music&sources=tmz&limit=10`
+     )
+     .then((res) => {
+       return res.data.data;
+     })
+     .then((news) => {
+       const newsResult = news.reverse();
+       console.log(newsResult);
+       res.status(200).send(newsResult);
+     })
+     .catch((err) => console.log("news function no working", err));
   }, 
   // getSongs: async (req, res) => {
   //   const songs = await axios.get(`${SONG_URL}?X-RapidAPI-Key=${SONG_KEY}&term=kisstherain&locale=en-US&offset=0&limit=5`)
