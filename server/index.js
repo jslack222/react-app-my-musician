@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const app = express();
-const {loginUser, createUser, getPost, createPost, deletePost, getNews} = require("./controller.js")
+const {loginUser, createUser, getPost, createPost, deletePost, getNews, getSongs} = require("./controller.js")
 
 const { SERVER_PORT } = process.env;
 
@@ -22,6 +22,7 @@ app.get("/post", getPost);
 app.post('/myprofile', createPost);
 app.delete('/deletepost/:id', deletePost)
 app.get('/getnews', getNews)
+// app.get('/getsongs', getSongs)
 
 
 const port = process.env.PORT || 5002;

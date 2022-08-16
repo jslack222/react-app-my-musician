@@ -4,8 +4,9 @@ const Sequelize = require("sequelize");
 // const { formatNamedParameters } = require("sequelize/types/utils");
 const { DATABASE_URL } = process.env;
 const { NEWS_API_KEY } = process.env;
-const {NEWS_URL} = process.env
-
+const { NEWS_URL } = process.env
+const {SONG_URL} = process.env
+const {SONG_KEY} = process.env
 // const sequelize = new Sequelize(NEWS_URL, {
 //   dialect: "postgres",
 //   dialectOptions: {
@@ -120,7 +121,17 @@ module.exports = {
     const newsResult = news.reverse()
     console.log(newsResult)
     res.status(200).send(newsResult)
-  }
+  }, 
+  // getSongs: async (req, res) => {
+  //   const songs = await axios.get(`${SONG_URL}?X-RapidAPI-Key=${SONG_KEY}&term=kisstherain&locale=en-US&offset=0&limit=5`)
+  //     .then((res) => {
+  //     return res.data.data;
+  //   });
+  //   console.log(songs)
+  //   const songResult = songs.reverse()
+  //   console.log(songResult)
+  //   res.status(200).send(songResult)
+  // }
 };
 
 

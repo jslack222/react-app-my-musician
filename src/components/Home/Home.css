@@ -13,6 +13,7 @@
     align-items: center;
     flex-direction: column
 }
+
 .newscard-outer {
     background-color: var(--primary);
     border-radius: 16px;
@@ -32,6 +33,7 @@
 .newscard-outer:hover {
     filter: brightness(1.2); 
     cursor: pointer;
+    transform: scale(1.1);
 }
 .news-card-inner {
   display: flex; 
@@ -88,4 +90,7 @@
 
 .posts-two-block-3:hover {
     filter: brightness(1.2)
+}
+.posts-two-master:hover {
+    transform: scale(1.1);
 }
