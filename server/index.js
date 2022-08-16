@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 const {loginUser, createUser, getPost, createPost, deletePost, getNews, getSongs} = require("./controller.js")
 
-const { SERVER_PORT } = process.env;
+const { PORT } = process.env;
 
 
 
@@ -29,6 +29,6 @@ app.get("/*", function (req, res) {
 });
 
 
-const PORT = process.env.PORT || 5002;
+const SERVER_PORT = process.env.PORT || 5002;
 
-app.listen(PORT, () => console.log(`listening on ${PORT}`));
+app.listen(SERVER_PORT, () => console.log(`listening on ${SERVER_PORT}`));
