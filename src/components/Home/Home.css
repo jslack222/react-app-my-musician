@@ -4,6 +4,8 @@
     flex-direction: column;
     justify-content: center; 
     align-items: center;
+    height: fit-content;
+
 }
 .home-header-card {
     display: flex; 
@@ -15,15 +17,16 @@
     background-color: var(--primary);
     border-radius: 16px;
     height: fit-content;
-    width: 63vw;
+    width: 65vw;
     margin-top: 4vh;
     display: flex; 
     justify-content: center; 
+    align-items: center;
     flex-direction: column; 
     padding-top: 1vh; 
     padding-bottom: 2vh;
-    padding-left: 2vh; 
-    padding-right: 2vh;
+    animation: bounce 2s;
+   
     
 }
 .newscard-outer:hover {
@@ -40,11 +43,49 @@
     color: white; 
 }
 .news-url:hover {
-    color: var(--highlight); 
+    text-decoration-line: underline; 
 }
 .news-title {
     display: flex; 
     flex-direction: column;
     color: white; 
     font-size: 4vh;
+    margin-right: 4vw;
+    margin-left: 4vw;
+
+}
+.see-more {
+    font-weight: bolder;
+    font-size: 2.5vh;
+    margin-left: 1vw;
+}
+.news-description {
+    margin-right: 4vw;
+    margin-left: 4vw;
+}
+.news-pic {
+    display: flex; 
+    justify-content: center;
+    align-items:center;
+    height: fit-content
+}
+.new-info-con {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.posts-two-block-3 {
+    display: flex;
+    background-color: var(--primary);
+    margin-top: 30px;
+    height: 10vh;
+    width: 65vw;
+    border-radius: 16px;
+    cursor: pointer;
+    animation: bounce 3s;
+}
+
+.posts-two-block-3:hover {
+    filter: brightness(1.2)
 }

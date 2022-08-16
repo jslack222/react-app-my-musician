@@ -19,14 +19,22 @@ const Home = () => {
 
   const newsDisplay = newsRender.map((news) => {
     console.log(news.image)
-    return <NewsCard title={news.title} img={news.image} description={news.description} url={news.url} />;
+    return (
+      <NewsCard
+        title={news.title}
+        img={news.image}
+        description={news.description}
+        url={news.url}
+        time={news.published_at}
+      />
+    );
       });
 
   return (
     <div className="Home-div">
       <div className="posts-two-master">
-        <div className="posts-two-block-1">
-          <h1 className="posts-two-heading">News</h1>
+        <div className="posts-two-block-3">
+          <h1 className="posts-two-heading">Hot News</h1>
         </div>
       </div>
       <div className="home-header-container">

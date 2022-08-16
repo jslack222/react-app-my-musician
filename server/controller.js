@@ -111,7 +111,7 @@ module.exports = {
   getNews: async(req, res) => {
     const news = await axios
       .get(
-        `${NEWS_URL}?access_key=${NEWS_API_KEY}&categories=entertainment&countries=us&keywords=music&limit=10`
+        `${NEWS_URL}?access_key=${NEWS_API_KEY}&categories=entertainment&countries=us&keywords=music&sources=tmz&limit=10`
       )
       .then((res) => {
         return res.data.data;
