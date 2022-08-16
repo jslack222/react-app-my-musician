@@ -5,8 +5,8 @@ const Sequelize = require("sequelize");
 const { DATABASE_URL } = process.env;
 const { NEWS_API_KEY } = process.env;
 const { NEWS_URL } = process.env
-const {SONG_URL} = process.env
-const {SONG_KEY} = process.env
+console.log(DATABASE_URL); 
+console.log(NEWS_API_KEY);
 // const sequelize = new Sequelize(NEWS_URL, {
 //   dialect: "postgres",
 //   dialectOptions: {
