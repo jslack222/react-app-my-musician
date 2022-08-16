@@ -10,7 +10,7 @@ const { SERVER_PORT } = process.env;
 
 
 app.use(express.json()); 
-
+app.use(express.static(path.resolve(__dirname, "../build")));
 app.get('/',(req,res) => {
     res.send("Hello World")
 })
@@ -24,7 +24,11 @@ app.delete('/deletepost/:id', deletePost)
 app.get('/getnews', getNews)
 // app.get('/getsongs', getSongs)
 
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "../build", "index.html"));
+});
 
-const port = process.env.PORT || 5002;
 
-app.listen(port, () => console.log(`listening on ${port}`));
+const PORT = process.env.PORT || 5002;
+
+app.listen(PORT, () => console.log(`listening on ${PORT}`));
