@@ -1,0 +1,7 @@
+.friendsContainer {
+    background-color: var(--dark); 
+    height: 100vh;
+}
+.friends-inner {
+    max-width: 100%;
+}
