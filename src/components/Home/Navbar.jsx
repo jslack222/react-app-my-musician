@@ -60,7 +60,14 @@ const Navbar = (props) => {
           setSignuperr(err);
         });
     }
+
   };
+
+  const logout = (props) => {
+    // Remove All (Clear Local Storage)
+    localStorage.clear();
+    props.setLoggedIn(!props.loggedIn)
+  }
   
 
   return (
@@ -111,10 +118,7 @@ const Navbar = (props) => {
             </Link>
           </li>
           <li className="nav_item">
-            <span
-              onClick={() => SetBtnpop(!btnpop)}
-              className="profile-nav"
-            >
+            <span onClick={() => SetBtnpop(!btnpop)} className="profile-nav">
               <img src={profile} alt="friends-icon" className="friends-icon" />
             </span>
           </li>
@@ -134,7 +138,11 @@ const Navbar = (props) => {
           </div>
           <div className="space"></div>
           <div className="btn-container">
-            <button onClick={() => props.setLoggedIn(!props.loggedIn)} className="logout-btn">
+            <button
+              onClick={() => { localStorage.clear(); props.setLoggedIn(!props.loggedIn)}
+              }
+              className="logout-btn"
+            >
               <img className="logout-img" src={logoutIcon} alt="" />
               <p>Logout</p>
             </button>

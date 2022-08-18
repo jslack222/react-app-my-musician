@@ -12,16 +12,14 @@ import Profile from "./components/Profiles/Profile";
 
 function App(props) {
   const [userObject, setUserObject] = useState({})
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   
-  // useEffect(() => {
-  // let user = localStorage.getItem("user_profile");
-  //   if (!user) {
-  //     console.log(user)
-  //     let userObj = JSON.parse(user);
-  //     setUserObject(userObj); 
-  //   }
-  // }, [])
+  useEffect(() => {
+  let user = localStorage.getItem("user_profile");
+    if (user !== null) {
+     setLoggedIn(true)
+    }
+  }, [])
   
   function setStatus() {
     setLoggedIn(!loggedIn)
